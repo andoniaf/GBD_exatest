@@ -10,7 +10,7 @@
 
 	// insert query
 	$query = "REPLACE alumnos "
-		. "SET nif=?,nombre=?,apellido1=?,apellido2=?,"
+		. "SET nombre=?,apellido1=?,apellido2=?,"
 		. "email=?,telefono=?,"
 		. "usuario=?,password=? ";
 	echo $query,"<br>";
@@ -25,7 +25,7 @@
 	}
 
 	// asociar los parámetros
-	$stmt->bind_param('ssssssss',$_POST['nif'],$_POST['nombre'],
+	$stmt->bind_param('sssssss',$_POST['nombre'],
 	$_POST['apellido1'],$_POST['apellido2'],$_POST['email'],
 	$_POST['telefono'],$_POST['usuario'],$_POST['password']);
 
@@ -40,10 +40,6 @@
 <form action='altas.php' method='post'>
 <table border='0'>
     <tr>
-	<td>NIF</td>
-	<td><input type='text' name='nif' /></td>
-    </tr>
-    <tr>
 	<td>Nombre</td>
 	<td><input type='text' name='nombre' /></td>
     </tr>
@@ -55,10 +51,6 @@
 	<td>2o Apellido</td>
 	<td><input type='text' name='apellido2'></textarea></td>
     </tr>
-<!--            <tr>
-	<td>login</td>
-	<td><input type='text' name='login' /></td>
-    </tr>-->
     <tr>
 	<td>email</td>
 	<td><input type='text' name='email' /></td>
