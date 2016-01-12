@@ -9,14 +9,14 @@ include 'conexion.php';
 // hacer que las modificaciones hechas en edita.php sean guardadas en la BD
 if ($_POST) {
     // escribir en la tabla cliente
-    $query = "UPDATE clientes "
-    . "SET nif=?, nombre=?, apellido1=?, apellido2=?, "
+    $query = "UPDATE alumnos "
+    . "SET nombre=?, apellido1=?, apellido2=?, "
     . "email=?, telefono=?, usuario=?, password=? "
     . "WHERE id = ?";
     
     $stmt = $conexion->prepare($query);
     
-    $stmt->bind_param('ssssssssi', $_POST['nif'], $_POST['nombre'],
+    $stmt->bind_param('sssssssi', $_POST['nombre'],
     $_POST['apellido1'], $_POST['apellido2'], $_POST['email'], $_POST['telefono'],
     $_POST['usuario'], $_POST['password'], $id);
     
@@ -29,8 +29,8 @@ if ($_POST) {
 
 
 // leer el registro de la tabla
-$query = "SELECT nif, nombre, apellido1, apellido2, email, telefono, usuario, password "
-    . "FROM clientes "
+$query = "SELECT nombre, apellido1, apellido2, email, telefono, usuario, password "
+    . "FROM alumnos "
     . "WHERE id = ? ";
 
 if ($stmt = $conexion->prepare($query)) {
@@ -40,7 +40,7 @@ if ($stmt = $conexion->prepare($query)) {
     
     // ejecutamos la consulta
     $stmt->execute();
-    $stmt->bind_result($nif, $nombre, $apellido1, $apellido2, $email, $telefono,$usuario, $password);
+    $stmt->bind_result($nombre, $apellido1, $apellido2, $email, $telefono,$usuario, $password);
     
     // recuperamos la variable
     $stmt->fetch();
@@ -49,10 +49,6 @@ if ($stmt = $conexion->prepare($query)) {
 <form action='edita.php?id=<?php echo htmlspecialchars($id); ?>' method='post'
 border='0'>
     <table>
-	<tr>
-	    <td>NIF:</td>
-	    <td><input type='text' name='nif' value="<?php echo htmlspecialchars($nif, ENT_QUOTES); ?>" /></td>
-	</tr>
 	<tr>
 	    <td>Nombre:</td>
 	    <td><input type='text' name='nombre' value="<?php echo htmlspecialchars($nombre, ENT_QUOTES); ?>" /></td>
