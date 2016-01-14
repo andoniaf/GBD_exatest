@@ -11,7 +11,7 @@
     <script type="text/JavaScript" src="js/pipati.js"></script>
         <script type="text/JavaScript">
             function borra_cliente(id){
-        		var answer = confirm('¿Estás seguro que deseas borrar el cliente?');
+        		var answer = confirm('¿Estás seguro que deseas borrar el alumno?');
         		if (answer) {
         		// si el usuario hace click en ok,
         		// se ejecutar borra.php

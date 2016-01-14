@@ -1,4 +1,4 @@
-<h1>Editar cliente</h1>
+<h1>Editar alumno</h1>
 <?php
 // coger el parámetro que nos permitirá identificar el registro
 // isset() es una función PHP usado para verificar si una variable tiene valor o no
@@ -8,7 +8,7 @@ include 'conexion.php';
 
 // hacer que las modificaciones hechas en edita.php sean guardadas en la BD
 if ($_POST) {
-    // escribir en la tabla cliente
+    // escribir en la tabla alumnos
     $query = "UPDATE alumnos "
     . "SET nombre=?, apellido1=?, apellido2=?, "
     . "email=?, telefono=?, usuario=?, password=? "

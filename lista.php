@@ -1,10 +1,10 @@
-<h1>Lista Clientes</h1>
+<h1>Lista Alumnos</h1>
 <?php
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 // si viene de borra.php
 if ($action == 'deleted') {
-    echo "<div>El registro cliente ha sido borrado.</div><br>";
+    echo "<div>El registro alumno ha sido borrado.</div><br>";
 }
 
 // Elegir los datos que deseamos recuperar de la tabla
@@ -24,7 +24,7 @@ $stmt->bind_result($idAlumno,$nombre,$apellido1,$apellido2,$email,$telefono,
 
 // enlace a alta
 echo "<div>";
-echo "<a href='index.php?action=altas'>Alta cliente</a>";
+echo "<a href='index.php?action=altas'>Alta alumno</a>";
 echo "</div>";
 
 //cabecera de los datos mostrados

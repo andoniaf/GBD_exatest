@@ -1,4 +1,4 @@
-<h1>Alta Cliente</h1>
+<h1>Alta Alumno</h1>
 <?php
 /* Si se llama desde el form, contendra datos de 'input' y al no ser
  * $_POST falso se ejecutar primero el PHP, si no hubiese datos y fuese

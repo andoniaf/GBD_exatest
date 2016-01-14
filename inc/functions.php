@@ -1,6 +1,6 @@
 <?php
 function sec_session_start() {
-    $session_name = 'sec_session_id'; //Asignamos un nombre de sesión
+    $session_name = 'exatest_session_id'; //Asignamos un nombre de sesión
     $secure = false; //mejor en config.php Lo ideal sería true para trabajar con https
     $httponly = true;
 
