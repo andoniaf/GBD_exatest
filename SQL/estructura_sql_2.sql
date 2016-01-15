@@ -14,12 +14,15 @@ CREATE TABLE alumnos (
 CREATE TABLE preguntas (
     `idPregunta` INT NOT NULL AUTO_INCREMENT,
     `descripcion` varchar(255) NOT NULL,
-    `opcion1` varchar(255) NOT NULL,
-    `opcion2` varchar(255) NOT NULL,
-    `opcion3` varchar(255) NOT NULL,
-    `opcion4` varchar(255) NOT NULL,
-    `opcion_true` varchar(255) NOT NULL,
     PRIMARY KEY (`idPregunta`)
+) ENGINE=InnoDB ;
+
+CREATE TABLE opciones (
+    `idOpcion` INT NOT NULL AUTO_INCREMENT,
+    `idPregunta` INT NOT NULL ,
+    `descripcion` varchar(255) NOT NULL,
+    `isTrue` BOOLEAN NOT NULL,
+    PRIMARY KEY (`idOpcion`)
 ) ENGINE=InnoDB ;
 
 CREATE TABLE respuestas (
@@ -47,6 +50,11 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 ALTER TABLE `login_attempts`
   ADD CONSTRAINT `login_attempts_ibfk_1` FOREIGN KEY (`id`) REFERENCES `alumnos` (`idAlumno`);
 
+ALTER TABLE `opciones`
+    ADD CONSTRAINT `fk_preguntas_opciones`
+    FOREIGN KEY (`idPregunta`)
+    REFERENCES `preguntas` (`idPregunta`);
+
 ALTER TABLE `intentos`
     ADD CONSTRAINT `fk_alumnos_intentos`
     FOREIGN KEY (`idAlumno`)
@@ -56,16 +64,41 @@ ALTER TABLE `respuestas`
     ADD CONSTRAINT `fk_preguntas_respuestas`
     FOREIGN KEY (`idPregunta`)
     REFERENCES `preguntas` (`idPregunta`),
-    ADD CONSTRAINT `fk_intentos_respuestas`
+    ADD CONSTRAINT `fk_opciones_respuestas`
+	FOREIGN KEY (`idOpcion`)
+	REFERENCES `opciones` (`idOpcion`),
+	ADD CONSTRAINT `fk_intentos_respuestas`
 	FOREIGN KEY (`idIntento`)
 	REFERENCES `intentos` (`idIntento`);
 
-INSERT INTO `preguntas` (`idPregunta`,`descripcion`,`opcion1`,`opcion2`,`opcion3`,`opcion4`,`opcion_true`) VALUES
-	(1,'Who am I? PiPaPoPU!','George Lucas','Stephen Hawking','Amy Acker','Artoo (R2D2)',2),
-	(2,'¿Quien es root?','Juanmi','Groot','Amy Acker','Snowden',3),
-	(3,'¿Quien gana?','Thor','Cpt. America','Iron Man','Ojo de halcón',3),
-	(4,'"Recuerdo los buenos tiempos, recuerdo buenas historias. Y aún arde _____ en mi memoria."','Londres','Madrid','Valencia','Mordor',2),
-	(5,'¿Cual es la respuesta al sentido de la vida el universo y todo lo demas?','42','13','Amy Acker','Taylor Swift',1);
+INSERT INTO `preguntas` (`descripcion`) VALUES
+	('Who am I? PiPaPoPU!'),
+	('¿Quien es root?'),
+	('¿Quien gana?'),
+	('"Recuerdo los buenos tiempos, recuerdo buenas historias. Y aún arde _____ en mi memoria."'),
+	('¿Cual es la respuesta al sentido de la vida el universo y todo lo demas?');
+
+INSERT INTO `opciones` (`idPregunta`, `descripcion`, `isTrue`) VALUES
+    ('1','George Lucas',0),
+    ('1','Stephen Hawking',1),
+    ('1','Amy Acker',0),
+    ('1','Artoo (R2D2)',0),
+    ('2','Groot',0),
+    ('2','Snowden',0),
+    ('2','Amy Acker',1),
+    ('2','Juanmi',0),
+    ('3','Iron Man',1),
+    ('3','Ojo de halcón',0),
+    ('3','Cpt. America',0),
+    ('3','Thor',0),
+    ('4','Madrid',1),
+    ('4','Mordor',0),
+    ('4','Valencia',0),
+    ('4','Londres',0),
+    ('5','13',0),
+    ('5','Amy Acker',0),
+    ('5','Taylor Swift',0),
+    ('5','42',1);
 
 INSERT INTO `alumnos` (`nombre`, `apellido1`,`apellido2`,`email`,`telefono`,`usuario`,`password`) VALUES
     ('Ginevra','Weasley','Wisly','ginny@griffindor.org','963141592','gweasley',SHA2('ronron',512)),
