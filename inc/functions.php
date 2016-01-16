@@ -114,6 +114,22 @@ function checkbrute($id, $conexion) {
     }
 }
 
+function checkexattempts($usuario, $conexion) {
+    if ($stmt = $conexion->prepare("SELECT idRespuesta
+    FROM respuestas
+    WHERE usuario = ?")) {
+	$stmt->bind_param('s', $usuario);
+	$stmt->execute();
+	$stmt->store_result();
+	// Si ha habido 5preguntas*3intentos= 15 respuestas
+	if ($stmt->num_rows >= 15) { //luego intentos = 3;
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+}
+
 function login_check($conexion) {
 // Comprueba que todas las variables de sesión estén inicializadas
     if (isset($_SESSION['id'], $_SESSION['usuario'], $_SESSION['login_string'])) {
