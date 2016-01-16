@@ -23,12 +23,13 @@ CREATE TABLE preguntas (
 ) ENGINE=InnoDB ;
 
 CREATE TABLE respuestas (
+    `idRespuesta` INT NOT NULL AUTO_INCREMENT,
     `usuario` varchar(50) NOT NULL,
     `idPregunta` INT NOT NULL ,
     `idOpcion` INT NOT NULL ,
     `time` VARCHAR(150) NOT NULL ,
-    PRIMARY KEY (`usuario`,`idPregunta`)
-) ENGINE=InnoDB ;
+    PRIMARY KEY (`idRespuesta`)
+    ) ENGINE=InnoDB ;
 
 CREATE TABLE intentos (
     `idIntento` INT NOT NULL AUTO_INCREMENT,
