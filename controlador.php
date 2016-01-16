@@ -37,7 +37,7 @@ if (!login_check($conexion)) { //no estas autorizado
     case 'logout':logout();$action='login';
     }
     echo "<div class=\"logout\"> <a href=\"index.php?action=logout\"> logout
-		    {$_SESSION['usuario']} </a></div>"; 
+    		    {$_SESSION['usuario']} </a></div>"; 
     if (!isset($action)) {
 	$action = $default_action; //acción por defecto $default_action = "lista"
     }
