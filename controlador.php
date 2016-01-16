@@ -33,9 +33,11 @@ if (!login_check($conexion)) { //no estas autorizado
     
     // In case para definir la accion default segun 'login/logout'
     switch ($action){
-    case 'login': $action = $default_action;break;
+    case 'login': $action = $default_action;break;		    
     case 'logout':logout();$action='login';
     }
+    echo "<div class=\"logout\"> <a href=\"index.php?action=logout\"> logout
+		    {$_SESSION['usuario']} </a></div>"; 
     if (!isset($action)) {
 	$action = $default_action; //acción por defecto $default_action = "lista"
     }
@@ -44,6 +46,7 @@ if (!login_check($conexion)) { //no estas autorizado
 	echo "Operación no soportada: 404 [Prueba: Default is ". $default_action ." ] and action= ". $action ."!";
     }
 }
+
 include( $action . '.php');//y ahora mostramos la pagina llamada
 
 

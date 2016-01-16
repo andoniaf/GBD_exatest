@@ -35,6 +35,7 @@
     <nav class="melolbar">
         <div><a href="index.php?action=login">Inicio</a></div>
         <div><a href="index.php?action=altas">Altas</a></div>
+	<div><a href="index.php?action=lista">Lista</a></div>
         <div id="pipati"><button onclick="pipati()">¿Quieres jugar?</button></div>
     </nav>
 	<div id="content">
