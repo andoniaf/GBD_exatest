@@ -25,7 +25,8 @@ $sql="INSERT INTO respuestas "
         . "('$usuario',1,$p1,'$now'), "
         . "('$usuario',2,$p2,'$now'), "
         . "('$usuario',3,$p3,'$now'), "
-        . "('$usuario',4,$p4,'$now'); ";
+        . "('$usuario',4,$p4,'$now'), "
+	. "('$usuario',5,$p5,'$now'); ";
 //Conectar con la base de datos
 include 'conexion.php';
 $conexion->query($sql);
@@ -33,7 +34,7 @@ $conexion->query($sql);
 //Corregimos y mostramos la nota
 $sql = "SELECT preguntas.opcion_true as a, respuestas.idOpcion as b "
         . "FROM preguntas, respuestas "
-        . "WHERE respuestas.usuario='$usuario' AND preguntas.idPregunta=respuestas.idPregunta ";
+        . "WHERE respuestas.usuario='$usuario' AND preguntas.idPregunta=respuestas.idPregunta AND time='$now'";
 echo  "<br>".$sql . "<br>"; //Linea de entorno de pruebas, borrar al terminar
 $result = $conexion->query($sql);
 $blanco = 0;
@@ -47,9 +48,12 @@ while ($fila = $result->fetch_assoc()) {
     } else {
         $errores++;
     }
-    echo $fila['a'],"==>",$fila['b'],"<br>";
+    echo $fila['a']," ==> ",$fila['b'],"<br>";
 }
-echo " Has tenido $aciertos aciertos, $errores errores. ";
+$nota = ($aciertos - ($errores/3))*2;
+echo "<br/> Has tenido $aciertos aciertos, $blanco blancos y $errores errores. <br/>"
+	. "Tu nota es ".round($nota, 3);
+
 
 	
 
