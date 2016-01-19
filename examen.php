@@ -1,5 +1,5 @@
 <?php
-if (checkexattempts($usuario, $conexion)){
+if (checkexattempts($_SESSION['usuario'], $conexion)){
     echo "<br/> Ya tienes 3 intentos. Alea jacta est";
 } else {
     $sql = "SELECT * "

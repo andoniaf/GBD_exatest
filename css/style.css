@@ -67,6 +67,7 @@ text-shadow:5px 5px 10px black;
 #content {
 padding-bottom:70px; /* Height of the footer element */
 padding-left: 20px;
+font-size: large;
 }
 
 #footer{
