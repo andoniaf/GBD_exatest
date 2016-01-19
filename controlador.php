@@ -12,7 +12,7 @@ if (!login_check($conexion)) { //no estas autorizado
 	    // Éxito
 	    $action = $default_action; //acción por defecto
 	    
-	    echo "<div class=\"logout\"> <a href=\"index.php?action=logout\"> logout
+	    echo "<div class=\"logout\"> <a href=\"index.php?action=logout\"> Desconectar
 		{$_SESSION['usuario']} </a></div>";
 	    
 	} else {
@@ -36,8 +36,11 @@ if (!login_check($conexion)) { //no estas autorizado
     case 'login': $action = $default_action;break;		    
     case 'logout':logout();$action='login';
     }
-    echo "<div class=\"logout\"> <a href=\"index.php?action=logout\"> logout
-    		    {$_SESSION['usuario']} </a></div>"; 
+    if ($action != "login"){
+	    echo "<div class=\"logout\"> <a href=\"index.php?action=logout\"> "
+	    . "Desconectar {$_SESSION['usuario']} "
+	    . "</a></div><br>";
+    }
     if (!isset($action)) {
 	$action = $default_action; //acción por defecto $default_action = "lista"
     }

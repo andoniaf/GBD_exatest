@@ -56,7 +56,7 @@ echo "<br/> Has tenido $aciertos aciertos, $blanco blancos y $errores errores."
 	. "<br/>Tu nota es ".round($nota, 3);
 
 if (checkexattempts($usuario, $conexion)){
-    echo "<br/> Este examen no es valido, ya tienes 3 intentos.";
+    echo "<br/> Este examen era tu ultimo intento.";
 } 
 	
 

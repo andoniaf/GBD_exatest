@@ -1,5 +1,8 @@
 <h1>Editar alumno</h1>
+<h4>Esta opción no esta disponible.</h4>
+
 <?php
+/*
 // coger el parámetro que nos permitirá identificar el registro
 // isset() es una función PHP usado para verificar si una variable tiene valor o no
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: Registro no encontrado.');

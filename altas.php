@@ -1,8 +1,11 @@
 <h1>Alta Alumno</h1>
+<h4>Esta opción no esta disponible.</h4>
+
 <?php
-/* Si se llama desde el form, contendra datos de 'input' y al no ser
- * $_POST falso se ejecutar primero el PHP, si no hubiese datos y fuese
- * falso se ignoraria el PHP y mostraria el formulario. */
+/*
+// Si se llama desde el form, contendra datos de 'input' y al no ser
+// $_POST falso se ejecutar primero el PHP, si no hubiese datos y fuese
+// falso se ignoraria el PHP y mostraria el formulario. 
     if($_POST){
 	// include conexion a la BD -> de aqui obtenemos $conexion
 	include 'conexion.php';

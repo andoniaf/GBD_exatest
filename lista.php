@@ -47,13 +47,14 @@ echo "<td>$apellido2</td>";
 echo "<td>$email</td>";
 echo "<td>$telefono</td>";
 echo "<td>$usuario</td>";
+/*
 echo "<td>";
 // Este enlace es para modificar el registro
 echo "<a href='index.php?action=edita&id={$idAlumno}'>Edita</a>";
 echo " / ";
 // Este enlace es para borrar el registro y también se explicará más tarde
 echo "<a href='javascript:borra_cliente(\"$idAlumno\")'> Elimina </a>";
-echo "</td>";
+echo "</td>";*/
 echo "</tr>\n";
 }
 // end table

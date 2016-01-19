@@ -31,13 +31,13 @@ CREATE TABLE respuestas (
     PRIMARY KEY (`idRespuesta`)
     ) ENGINE=InnoDB ;
 
-CREATE TABLE intentos (
+/*CREATE TABLE intentos (
     `idIntento` INT NOT NULL AUTO_INCREMENT,
     `idAlumno` INT NOT NULL ,
     `idRespuesta` INT NOT NULL ,
     `fecha` DATETIME NOT NULL,
     PRIMARY KEY (`idIntento`)
-) ENGINE=InnoDB ;
+) ENGINE=InnoDB ;*/
 
 CREATE TABLE IF NOT EXISTS `login_attempts` (
   `id` int(11) NOT NULL,
@@ -48,18 +48,18 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 ALTER TABLE `login_attempts`
   ADD CONSTRAINT `login_attempts_ibfk_1` FOREIGN KEY (`id`) REFERENCES `alumnos` (`idAlumno`);
 
-ALTER TABLE `intentos`
+/*ALTER TABLE `intentos`
     ADD CONSTRAINT `fk_alumnos_intentos`
     FOREIGN KEY (`idAlumno`)
-    REFERENCES `alumnos` (`idAlumno`);
+    REFERENCES `alumnos` (`idAlumno`);*/
 
 ALTER TABLE `respuestas`
     ADD CONSTRAINT `fk_preguntas_respuestas`
     FOREIGN KEY (`idPregunta`)
     REFERENCES `preguntas` (`idPregunta`),
-    ADD CONSTRAINT `fk_intentos_respuestas`
+/*    ADD CONSTRAINT `fk_intentos_respuestas`
 	FOREIGN KEY (`idIntento`)
-	REFERENCES `intentos` (`idIntento`);
+	REFERENCES `intentos` (`idIntento`);*/
 
 INSERT INTO `preguntas` (`idPregunta`,`descripcion`,`opcion1`,`opcion2`,`opcion3`,`opcion4`,`opcion_true`) VALUES
 	(1,'Who am I? PiPaPoPU!','George Lucas','Stephen Hawking','Amy Acker','Artoo (R2D2)',2),
