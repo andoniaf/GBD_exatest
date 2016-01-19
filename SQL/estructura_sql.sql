@@ -31,13 +31,15 @@ CREATE TABLE respuestas (
     PRIMARY KEY (`idRespuesta`)
     ) ENGINE=InnoDB ;
 
-/*CREATE TABLE intentos (
-    `idIntento` INT NOT NULL AUTO_INCREMENT,
-    `idAlumno` INT NOT NULL ,
-    `idRespuesta` INT NOT NULL ,
-    `fecha` DATETIME NOT NULL,
-    PRIMARY KEY (`idIntento`)
-) ENGINE=InnoDB ;*/
+CREATE TABLE `notas` (
+    `idNota` INT NOT NULL AUTO_INCREMENT,
+    `usuario` VARCHAR(50) NOT NULL,
+    `aciertos` INT(10) NOT NULL,
+    `blancos` INT(10) NOT NULL,
+    `errores` INT(10) NOT NULL,
+    `nota` DOUBLE(4,3) NOT NULL,
+    PRIMARY KEY (`idNota`)
+    ) ENGINE=InnoDB ;
 
 CREATE TABLE IF NOT EXISTS `login_attempts` (
   `id` int(11) NOT NULL,
@@ -56,7 +58,7 @@ ALTER TABLE `login_attempts`
 ALTER TABLE `respuestas`
     ADD CONSTRAINT `fk_preguntas_respuestas`
     FOREIGN KEY (`idPregunta`)
-    REFERENCES `preguntas` (`idPregunta`),
+    REFERENCES `preguntas` (`idPregunta`);
 /*    ADD CONSTRAINT `fk_intentos_respuestas`
 	FOREIGN KEY (`idIntento`)
 	REFERENCES `intentos` (`idIntento`);*/

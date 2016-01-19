@@ -50,7 +50,8 @@ while ($fila = $result->fetch_assoc()) {
     }
     echo $fila['a']," ==> ",$fila['b'],"<br>";
 }
-$nota = ($aciertos - ($errores/3))*2;
+$nota = round((($aciertos - ($errores/3))*2),3);
+
 
 echo "<br/> Has tenido $aciertos aciertos, $blanco blancos y $errores errores."
 	. "<br/>Tu nota es ".round($nota, 3);
@@ -59,5 +60,10 @@ if (checkexattempts($usuario, $conexion)){
     echo "<br/> Este examen era tu ultimo intento.";
 } 
 	
-
+//Guardamos la nota
+$sql="INSERT INTO notas "
+        . "(usuario, aciertos, blancos, errores, nota) "
+        . "VALUES "
+        . "('$usuario','$aciertos','$blanco','$errores','$nota');";
+$conexion->query($sql);
 
