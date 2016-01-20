@@ -37,7 +37,7 @@ CREATE TABLE `notas` (
     `aciertos` INT(10) NOT NULL,
     `blancos` INT(10) NOT NULL,
     `errores` INT(10) NOT NULL,
-    `nota` DOUBLE(4,3) NOT NULL,
+    `nota` DOUBLE(5,3) NOT NULL,
     PRIMARY KEY (`idNota`)
     ) ENGINE=InnoDB ;
 
@@ -50,18 +50,10 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 ALTER TABLE `login_attempts`
   ADD CONSTRAINT `login_attempts_ibfk_1` FOREIGN KEY (`id`) REFERENCES `alumnos` (`idAlumno`);
 
-/*ALTER TABLE `intentos`
-    ADD CONSTRAINT `fk_alumnos_intentos`
-    FOREIGN KEY (`idAlumno`)
-    REFERENCES `alumnos` (`idAlumno`);*/
-
 ALTER TABLE `respuestas`
     ADD CONSTRAINT `fk_preguntas_respuestas`
     FOREIGN KEY (`idPregunta`)
     REFERENCES `preguntas` (`idPregunta`);
-/*    ADD CONSTRAINT `fk_intentos_respuestas`
-	FOREIGN KEY (`idIntento`)
-	REFERENCES `intentos` (`idIntento`);*/
 
 INSERT INTO `preguntas` (`idPregunta`,`descripcion`,`opcion1`,`opcion2`,`opcion3`,`opcion4`,`opcion_true`) VALUES
 	(1,'Who am I? PiPaPoPU!','George Lucas','Stephen Hawking','Amy Acker','Artoo (R2D2)',2),

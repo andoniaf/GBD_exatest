@@ -1,4 +1,4 @@
-<html>
+<html> 
     <head>
         <meta charset="UTF-8">
         <title>Exatest</title>
@@ -28,7 +28,7 @@
 		<img src="img/logo_web.png"></img>
 	    </div>
 	    <div id="title">
-		Manager Emulator LOL
+		Exatest
 	    </div>
 
 	</div>

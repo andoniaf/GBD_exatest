@@ -16,7 +16,7 @@ if (empty($p5)) $p5=0;
 
 //Mostramos los resultados
 echo $p1," - ",$p2," - ",$p3," - ",$p4," - ",$p5;
-echo "<br/>".$user.$now; //Linea de entorno de pruebas, borrar al terminar
+echo "<br/>"/*.$user.$now*/; //Linea de entorno de pruebas 
 	
 //Despues de mostrar las respuestas se guardan
 $sql="INSERT INTO respuestas "
@@ -35,7 +35,7 @@ $conexion->query($sql);
 $sql = "SELECT preguntas.opcion_true as a, respuestas.idOpcion as b "
         . "FROM preguntas, respuestas "
         . "WHERE respuestas.usuario='$usuario' AND preguntas.idPregunta=respuestas.idPregunta AND time='$now'";
-echo  "<br>".$sql . "<br>"; //Linea de entorno de pruebas, borrar al terminar
+// echo  "<br>".$sql . "<br>"; //Linea de entorno de pruebas
 $result = $conexion->query($sql);
 $blanco = 0;
 $aciertos = 0;
@@ -57,7 +57,7 @@ echo "<br/> Has tenido $aciertos aciertos, $blanco blancos y $errores errores."
 	. "<br/>Tu nota es ".round($nota, 3);
 
 if (checkexattempts($usuario, $conexion)){
-    echo "<br/> Este examen era tu ultimo intento.";
+    echo "<br/><b>Este examen era tu ultimo intento.</b>";
 } 
 	
 //Guardamos la nota
