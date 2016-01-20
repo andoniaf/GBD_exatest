@@ -47,7 +47,7 @@
 	</div>
 	<div id="footer">
         <div class="pull-left"><kbd>#MELOL</kbd></div>
-	    <div class="pull-right"><kbd>Andoni Alonso (2015)</kbd></div>
+	    <div class="pull-right"><kbd>Andoni Alonso (2016)</kbd></div>
 	</div>
     </div>
 	</div>
