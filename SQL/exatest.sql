@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-01-2016 a las 07:28:13
+-- Tiempo de generación: 20-01-2016 a las 08:10:45
 -- Versión del servidor: 5.5.44-0ubuntu0.14.04.1
 -- Versión de PHP: 5.5.9-1ubuntu4.11
 
@@ -64,6 +64,15 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   KEY `index_id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `time`) VALUES
+(2, '1453272516'),
+(2, '1453272531'),
+(2, '1453272972');
+
 -- --------------------------------------------------------
 
 --
@@ -76,9 +85,21 @@ CREATE TABLE IF NOT EXISTS `notas` (
   `aciertos` int(10) NOT NULL,
   `blancos` int(10) NOT NULL,
   `errores` int(10) NOT NULL,
-  `nota` double(4,3) NOT NULL,
+  `nota` double(5,3) NOT NULL,
   PRIMARY KEY (`idNota`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Volcado de datos para la tabla `notas`
+--
+
+INSERT INTO `notas` (`idNota`, `usuario`, `aciertos`, `blancos`, `errores`, `nota`) VALUES
+(1, 'ssnape', 5, 0, 0, 10.000),
+(2, 'ssnape', 3, 0, 2, 4.667),
+(3, 'ssnape', 2, 0, 3, 2.000),
+(5, 'hpotter', 3, 0, 2, 4.667),
+(6, 'hpotter', 4, 1, 0, 8.000),
+(7, 'hpotter', 4, 0, 1, 7.333);
 
 -- --------------------------------------------------------
 
@@ -122,7 +143,43 @@ CREATE TABLE IF NOT EXISTS `respuestas` (
   `time` varchar(150) NOT NULL,
   PRIMARY KEY (`idRespuesta`),
   KEY `fk_preguntas_respuestas` (`idPregunta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
+
+--
+-- Volcado de datos para la tabla `respuestas`
+--
+
+INSERT INTO `respuestas` (`idRespuesta`, `usuario`, `idPregunta`, `idOpcion`, `time`) VALUES
+(31, 'ssnape', 1, 2, 'January 20, 2016, 7:34:55 am'),
+(32, 'ssnape', 2, 3, 'January 20, 2016, 7:34:55 am'),
+(33, 'ssnape', 3, 3, 'January 20, 2016, 7:34:55 am'),
+(34, 'ssnape', 4, 2, 'January 20, 2016, 7:34:55 am'),
+(35, 'ssnape', 5, 1, 'January 20, 2016, 7:34:55 am'),
+(36, 'ssnape', 1, 1, 'January 20, 2016, 7:37:13 am'),
+(37, 'ssnape', 2, 3, 'January 20, 2016, 7:37:13 am'),
+(38, 'ssnape', 3, 3, 'January 20, 2016, 7:37:13 am'),
+(39, 'ssnape', 4, 1, 'January 20, 2016, 7:37:13 am'),
+(40, 'ssnape', 5, 1, 'January 20, 2016, 7:37:13 am'),
+(41, 'ssnape', 1, 3, 'January 20, 2016, 7:37:23 am'),
+(42, 'ssnape', 2, 2, 'January 20, 2016, 7:37:23 am'),
+(43, 'ssnape', 3, 3, 'January 20, 2016, 7:37:23 am'),
+(44, 'ssnape', 4, 2, 'January 20, 2016, 7:37:23 am'),
+(45, 'ssnape', 5, 2, 'January 20, 2016, 7:37:23 am'),
+(51, 'hpotter', 1, 3, 'January 20, 2016, 7:57:00 am'),
+(52, 'hpotter', 2, 2, 'January 20, 2016, 7:57:00 am'),
+(53, 'hpotter', 3, 3, 'January 20, 2016, 7:57:00 am'),
+(54, 'hpotter', 4, 2, 'January 20, 2016, 7:57:00 am'),
+(55, 'hpotter', 5, 1, 'January 20, 2016, 7:57:00 am'),
+(56, 'hpotter', 1, 2, 'January 20, 2016, 7:57:54 am'),
+(57, 'hpotter', 2, 3, 'January 20, 2016, 7:57:54 am'),
+(58, 'hpotter', 3, 3, 'January 20, 2016, 7:57:54 am'),
+(59, 'hpotter', 4, 0, 'January 20, 2016, 7:57:54 am'),
+(60, 'hpotter', 5, 1, 'January 20, 2016, 7:57:54 am'),
+(61, 'hpotter', 1, 2, 'January 20, 2016, 7:58:22 am'),
+(62, 'hpotter', 2, 1, 'January 20, 2016, 7:58:22 am'),
+(63, 'hpotter', 3, 3, 'January 20, 2016, 7:58:22 am'),
+(64, 'hpotter', 4, 2, 'January 20, 2016, 7:58:22 am'),
+(65, 'hpotter', 5, 1, 'January 20, 2016, 7:58:22 am');
 
 --
 -- Restricciones para tablas volcadas
